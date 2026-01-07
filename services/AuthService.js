@@ -8,20 +8,32 @@ export class AuthService {
 
   register(username, password) {
     try {
-      if (!username || !password) {
+      if (!(username && password)) {
         return "Missing details"
+      }
+      if (typeof username !== "string" && typeof password !== "string") {
+        return "The tape is not authorized"
+
       } else {
         const user = { username, password }
         return this.userRepository.add(user)
       }
     } catch (err) {
       return err.message
-
     }
   }
 
+
+
   login(username, password) {
     try {
+      if (!(username && password)) {
+        return "Missing details"
+      }
+      if (typeof username !== "string" && typeof password !== "string") {
+        return "The tape is not authorized"
+
+      }
       const approval = this.userRepository.findByUsername(username)
       if (approval.username !== username && approval.password !== password) {
         return "Connection failed."
