@@ -13,14 +13,13 @@ export class UserRepository {
     }
   }
 
+  
   exists(username) {
-    const user = users.find(obj => obj.username === username)
+    const user = users.find(user => user.username === username)
     if (user) {
       return true
-    }
-    else {
+    } else {
       return false
-
     }
   }
 
