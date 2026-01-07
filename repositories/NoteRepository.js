@@ -3,7 +3,7 @@ import { Note } from "../models/Note.js";
 
 export class NoteRepository {
   add(note) {
-    const { id, ownerUsername, text } = note;
+    const {ownerUsername, text } = note;
     const objNote = new Note(id, ownerUsername, text);
     notes.push(objNote);
   }

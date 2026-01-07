@@ -27,7 +27,7 @@ export class UserRepository {
   add(user) {
     const ifItExists = exists(user.username)
     if (!ifItExists) {
-      const newUser = new User(user.id, user.username, user.password, user.createdAt)
+      const newUser = new User(user.username, user.password)
       users.push(newUser)
     }
     else{
